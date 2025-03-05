@@ -11,7 +11,12 @@ app.use(cors());
 
 connectDB();
 
+// Default route to check if the server is running
+app.get("/", (req, res) => {
+  res.send("🚀 Server is running!");
+});
+
 app.use("/bots", botRoutes);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080; // Use Render's assigned port or default to 8080
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
